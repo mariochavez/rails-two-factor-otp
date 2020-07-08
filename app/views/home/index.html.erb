@@ -1,5 +1,23 @@
-<section class="section">
-  <div class="container">
-    <h1 class="title">Home</h1>
+<section class="hero is-purple is-medium">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        2AF OTP
+      </h1>
+      <h2 class="subtitle">
+        With Ruby on Rails
+      </h2>
+    </div>
   </div>
 </section>
+
+<section class="section">
+  <div class="container">
+    <h1 class="subtitle">Hello, learn how to enable 2FA OTP on Ruby on Rails</h1>
+    <% if identity_signed_in? %>
+      <h3 class="is-size-4">Current user</h3>
+      <p><%= current_identity.email %></p>
+    <% end %>
+  </div>
+</section>
+

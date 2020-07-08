@@ -1,0 +1,34 @@
+<h1 class="title has-text-centered">2AF OTP</h1>
+<h2 class="subtitle has-text-centered">New session</h2>
+
+<div class="box is-medium has-margin-auto">
+  <%= form_for @identity, url: sessions_path do |form| %>
+    <%- if warden_message %>
+      <div class="notification is-danger is-light">
+        <span class="has-text-weight-bold is-size-4"><%= warden_message %></span>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :email, class: "label" %>
+      <div class="control">
+        <%= form.text_field :email, maxlength: 50, class: "input", placeholder: "grace@mail.com" %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= form.label :password, class: "label" %>
+      <div class="control">
+        <%= form.password_field :password, maxlength: 16, class: "input" %>
+      </div>
+    </div>
+
+    <div class="field is-grouped">
+      <div class="control">
+        <%= form.submit t(".log_in"), class: "button is-primary" %>
+      </div>
+      <div class="control">
+        <%= link_to "Go Back", root_path, class: "button is-light" %>
+      </div>
+    <% end %>
+    </div>
