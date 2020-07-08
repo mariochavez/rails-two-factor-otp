@@ -1,0 +1,18 @@
+<section class="hero is-purple">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        <%= t(".title") %>
+      </h1>
+      <h2 class="subtitle">
+        <%= t(".subtitle") %>
+      </h2>
+    </div>
+  </div>
+</section>
+
+<article data-controller="wizard">
+  <%= render partial: "step1" %>
+  <%= render partial: "step2" %>
+  <%= render partial: "step3" %>
+</article>

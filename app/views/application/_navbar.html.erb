@@ -20,6 +20,7 @@
       <div class="navbar-item">
         <div class="buttons">
           <% if identity_signed_in? %>
+            <%= link_to "Enable 2FA", otp_new_configure_path, class: "button is-primary has-text-weight-bold" %>
             <%= link_to "Log out", log_out_path, method: :delete, class: "button is-light" %>
           <% else %>
             <%= link_to "Sign up", sign_up_path, class: "button is-primary has-text-weight-bold" %>

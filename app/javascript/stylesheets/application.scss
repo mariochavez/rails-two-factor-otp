@@ -34,8 +34,10 @@ $input-shadow: none;
 @import "~bulma/sass/elements/other.sass";
 @import "~bulma/sass/form/_all.sass";
 @import "~bulma/sass/components/navbar.sass";
+@import "~bulma/sass/components/card.sass";
 @import "~bulma/sass/layout/hero.sass";
 @import "~bulma/sass/layout/section.sass";
+@import "~bulma/sass/grid/columns.sass";
 
 .hero.is-purple {
   background-color: $purple;
@@ -60,4 +62,32 @@ $input-shadow: none;
 
 .notification {
   margin-bottom: 0 !important;
+}
+
+.card.has-min-height-otp {
+  min-height: 360px;
+}
+
+.card.is-small {
+  width: 480px;
+}
+
+.flex-justify-center {
+  justify-content: center !important;
+}
+
+.is-code {
+  margin: 0 auto;
+
+  input {
+    width: 100px;
+  }
+}
+
+.wizard {
+  display: none;
+}
+
+.wizard.wizard--current {
+  display: block;
 }

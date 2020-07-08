@@ -1,0 +1,33 @@
+<section class="section wizard" data-target="wizard.slide" data-wizard-index="3">
+  <div class="container" data-controller="otp-verification">
+    <%= form_with url: otp_configure_path, local: false, data: { action: "ajax:before->otp-verification#cleanForm ajax:error->otp-verification#result"} do |form| %>
+      <%= hidden_field_tag :otp_secret, @otp_secret %>
+      <div class="card is-small has-margin-auto">
+        <div class="card-content">
+          <div class="content has-text-centered">
+            <h2 class="title"><%= t(".title") %></h2>
+            <p><%= t(".description") %></p>
+            <%= image_tag @qr_code %>
+
+            <div class="field is-code">
+              <div class="control" data-target="otp-verification.verification">
+                <%= text_field_tag :otp_code, nil, class: "input", maxlength: "6", placeholder: "123456" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-grouped flex-justify-center mt-3">
+        <div class="control">
+          <%= submit_tag t(".verify_code"), data: { disable_with: "Validating..." }, class: "button is-primary" %>
+        </div>
+        <div class="control">
+          <%= link_to "Go Back", root_path, class: "button is-light", data: { action: "click->wizard#back"} %>
+        </div>
+      </div>
+    <% end %>
+
+    <p class="has-text-centered mt-3"><%= t(".secret", secret: @otp_secret.scan(/.{1,4}/).join(" ")).html_safe %></p>
+  </div>
+</section>

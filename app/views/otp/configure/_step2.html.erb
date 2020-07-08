@@ -1,0 +1,26 @@
+<section class="section wizard" data-target="wizard.slide" data-wizard-index="2">
+  <div class="container">
+    <div class="card is-small has-margin-auto">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="https://bulma.io/images/placeholders/640x480.png" alt="Authenticator app">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="content has-text-centered">
+          <h2 class="title"><%= t(".title") %></h2>
+          <p><%= t(".description").html_safe %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="field is-grouped flex-justify-center mt-3">
+      <div class="control">
+        <%= link_to t(".got_the_app"), otp_new_configure_path, class: "button is-primary", data: { action: "click->wizard#next" } %>
+      </div>
+      <div class="control">
+        <%= link_to "Go Back", root_path, class: "button is-light", data: { action: "click->wizard#back"} %>
+      </div>
+    </div>
+  </div>
+</section>

@@ -20,7 +20,6 @@ class ApplicationController < ActionController::Base
   end
 
   def warden
-    request.env['warden']
+    request.env["warden"]
   end
-
 end
