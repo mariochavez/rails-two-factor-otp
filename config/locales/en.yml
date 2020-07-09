@@ -45,10 +45,25 @@ en:
       sign_up: 'Welcome to your new account!'
 
   otp:
+    complete:
+      show:
+        title: Two-factor Authentication
+        subtitle: With two-factor authentification (2FA) enabled your login process will change.
+        step_title: 2FA Setup step 3
+        description: >
+          It is important that you save the recovery codes below. If you loose your phone or get a new one, you will not be able to login without one of these codes.<br/><br/>
+          <b>You could be permanently locked out</b> of this application if you don’t have these codes. Save these and keep them somewhere safe.
+        recovery_codes: Recovery Codes
+        finish: Saved my codes
+        copy: Copy
+        print: Print
+        download: Download
+
     configure:
       new:
         title: Two-factor Authentication
         subtitle: With two-factor authentification (2FA) enabled your login process will change.
+
       step1:
         step1: Login as usual with your email and password.
         step2: Then your authenticator app will generate a unique security code. This code is valid for 30 seconds.

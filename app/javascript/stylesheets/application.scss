@@ -84,10 +84,28 @@ $input-shadow: none;
   }
 }
 
+.is-relative {
+  position: relative;
+}
+
 .wizard {
   display: none;
 }
 
 .wizard.wizard--current {
   display: block;
+}
+
+.recovery-codes {
+  background-color: $white-ter;
+}
+
+.clipboard.tooltip {
+  background-color: $primary;
+  color: $white;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  opacity: 0.8;
+  position: absolute;
+  top: -50px;
 }

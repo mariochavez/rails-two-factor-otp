@@ -17,6 +17,8 @@
     <% if identity_signed_in? %>
       <h3 class="is-size-4">Current user</h3>
       <p><%= current_identity.email %></p>
+      <h3 class="is-size-5">2FA enabled?</h3>
+      <p><%= current_identity.otp_enabled_at? %></p>
     <% end %>
   </div>
 </section>

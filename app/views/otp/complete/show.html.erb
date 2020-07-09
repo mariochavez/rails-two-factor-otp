@@ -1,0 +1,63 @@
+<section class="hero is-purple">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        <%= t(".title") %>
+      </h1>
+      <h2 class="subtitle">
+        <%= t(".subtitle") %>
+      </h2>
+    </div>
+  </div>
+</section>
+
+<article>
+  <section class="section">
+    <div class="container">
+      <div class="card is-small has-margin-auto">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img src="https://bulma.io/images/placeholders/640x480.png" alt="Success enabling 2AF">
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="content has-text-centered" data-controller="clipboard print download">
+            <h2 class="title"><%= t(".step_title") %></h2>
+            <p><%= t(".description").html_safe %></p>
+            <p class="has-text-weight-bold mt-3"><%= t(".recovery_codes") %></p>
+
+            <div class="is-hidden" data-target="download.content clipboard.content"><%= @recovery_codes.join(" ") %></div>
+            <div class="columns recovery-codes mt-3">
+              <% @recovery_codes.in_groups(2) do |group| %>
+                <ul class="column">
+                  <% group.each do |code| %>
+                    <li class="has-text-left pl-4"><code class="is-size-5"><%= code %></code></li>
+                  <% end %>
+                </ul>
+              <% end %>
+            </div>
+
+            <div class="field is-grouped flex-justify-center mt-3 is-relative" data-target="clipboard.tooltip">
+              <div class="control">
+                <%= link_to t(".copy"), "#", class: "button is-light", data: { action: "click->clipboard#copy" } %>
+              </div>
+              <div class="control">
+                <%= link_to t(".print"), "#", class: "button is-light", data: { action: "click->print#print" } %>
+              </div>
+              <div class="control">
+                <%= link_to t(".download"), "#", class: "button is-light", data: { target: "download.link" } %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-grouped flex-justify-center mt-3">
+        <div class="control">
+          <%= link_to t(".finish"), root_path, class: "button is-primary" %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</article>
