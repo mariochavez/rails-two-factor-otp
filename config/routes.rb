@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   namespace :otp do
     get "/", to: "configure#new", as: :new_configure
     post "/", to: "configure#create", as: :configure
+
     get "/complete", to: "complete#show", as: :complete
+
+    get "/disable", to: "disable#show", as: :disable
+    delete "/disable", to: "disable#destroy"
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

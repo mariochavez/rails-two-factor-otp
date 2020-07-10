@@ -6,6 +6,7 @@ $pink: #FA7C91;
 $brown: #757763;
 $beige-light: #D0D1CD;
 $beige-lighter: #EFF0EB;
+$red: #8C414A;
 
 // Update Bulma's global variables
 // $family-sans-serif: "Nunito", sans-serif;
@@ -39,7 +40,7 @@ $input-shadow: none;
 @import "~bulma/sass/layout/section.sass";
 @import "~bulma/sass/grid/columns.sass";
 
-.hero.is-purple {
+.hero.is-purple, .hero.is-red {
   background-color: $purple;
   color: $white;
 
@@ -50,6 +51,10 @@ $input-shadow: none;
   .subtitle {
     color: $white-bis;
   }
+}
+
+.hero.is-red {
+  background-color: $red;
 }
 
 .box.is-medium {
@@ -108,4 +113,12 @@ $input-shadow: none;
   opacity: 0.8;
   position: absolute;
   top: -50px;
+}
+
+.has-highlight-text.is-red {
+  color: $red;
+}
+
+.button.is-danger {
+  background-color: $red
 }

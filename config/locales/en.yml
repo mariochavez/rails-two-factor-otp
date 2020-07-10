@@ -59,6 +59,17 @@ en:
         print: Print
         download: Download
 
+    disable:
+      show:
+        title: Disable Two-factor authentication
+        subtitle: Disabling two-factor authentication(2FA) your login process will not require an additional code.
+        step_title: Disable 2FA Authentication
+        description: >
+          Disabling two-factor authentication will not require you to enter a code generated with your phone on sign in.<br/>
+          <b>This will make your account vulnerable to password guessing o phising.</b><br/><br/>
+          <span class="is-size-5 has-text-weight-bold has-highlight-text is-red">Are you sure you want to continue and disable two-factor authentication?</span>
+        disable: Yes, disable 2FA
+
     configure:
       new:
         title: Two-factor Authentication
