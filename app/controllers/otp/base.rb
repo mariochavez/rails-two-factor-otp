@@ -8,8 +8,11 @@ module Otp
       ROTP::Base32.random
     end
 
-    def verify_otp_code(otp_secret, otp_code)
-      totp_instance(otp_secret).verify(otp_code, drift_behind: 15)
+    def verify_otp_code(otp_secret, otp_code, last_otp_at)
+      params = {drift_behind: 15}
+      params[:after] = last_otp_at.to_i if last_otp_at.present?
+
+      totp_instance(otp_secret).verify(otp_code, **params)
     end
 
     def generate_qr_code_url(otp_secret, email)

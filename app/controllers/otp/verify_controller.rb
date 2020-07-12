@@ -15,10 +15,10 @@ module Otp
       verified = false
 
       if present_code?(code)
-        last_otp_at = verify_otp_code(current_identity.otp_secret_key, code)
+        last_otp_at = verify_otp_code(current_identity.otp_secret_key, code, current_identity.last_otp_at)
 
         if last_otp_at.present?
-          current_identity.update(last_otp_at: last_otp_at)
+          current_identity.update(last_otp_at: Time.at(last_otp_at).utc.to_datetime)
           verified = true
 
         else
