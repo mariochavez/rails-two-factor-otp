@@ -1,14 +1,15 @@
 module Strategies
   class DatabaseAuthentication < ::Warden::Strategies::Base
     def valid?
-      params['identity'].present?
+      params["identity"].present?
     end
 
     def authenticate!
-      identity = Identity.find_by_email(params['identity']['email']).try(:authenticate, params['identity']['password'])
+      identity = Identity.find_by(email: params.dig("identity", "email"))
+        .try(:authenticate, params.dig("identity", "password"))
 
       return success! identity if identity
-      fail! I18n.t('sessions.create.invalid_credentials')
+      fail! I18n.t("sessions.create.invalid_credentials")
     end
   end
 end

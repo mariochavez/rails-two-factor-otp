@@ -70,6 +70,16 @@ en:
           <span class="is-size-5 has-text-weight-bold has-highlight-text is-red">Are you sure you want to continue and disable two-factor authentication?</span>
         disable: Yes, disable 2FA
 
+    verify:
+      new:
+        code: Code
+        verify: Verify code
+        description: >
+          Open your two-factor authentication(2FA) app and enter the generated code.<br/><br/>
+          If you don't have your phone use one of the recovery codes provided to you when two-factor authentication(2FA) was wnabled for your account.
+      create:
+        logged_in: 'Welcome back!'
+
     configure:
       new:
         title: Two-factor Authentication

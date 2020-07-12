@@ -14,6 +14,9 @@ Rails.application.routes.draw do
 
     get "/disable", to: "disable#show", as: :disable
     delete "/disable", to: "disable#destroy"
+
+    get "/verify", to: "verify#new", as: :new_verify
+    post "/verify", to: "verify#create", as: :verify
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

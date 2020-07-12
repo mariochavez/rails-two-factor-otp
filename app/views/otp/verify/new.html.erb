@@ -1,0 +1,24 @@
+<h1 class="title has-text-centered">2AF OTP</h1>
+<h2 class="subtitle has-text-centered">Verify</h2>
+
+<div class="box is-medium has-margin-auto" data-controller="otp-verification">
+  <%= form_with url: otp_verify_path, local: false, html: { autocomplete: "off" }, data: { action: "ajax:before->otp-verification#cleanForm ajax:error->otp-verification#result"} do |form| %>
+    <p class="has-text-centered"><%= t(".description").html_safe %></p>
+
+    <div class="field has-text-centered mt-5">
+      <%= label_tag :code, t(".code"), class: "label" %>
+      <div class="control is-code" data-target="otp-verification.verification">
+        <%= text_field_tag :code, nil, maxlength: 12, class: "input", placeholder: "123456" %>
+      </div>
+    </div>
+
+    <div class="field is-grouped flex-justify-center mt-5">
+      <div class="control">
+        <%= submit_tag t(".verify"), data: { disable_with: "Validating..." }, class: "button is-primary" %>
+      </div>
+      <div class="control">
+        <%= link_to "Go Back", root_path, class: "button is-light" %>
+      </div>
+    </div>
+  <% end %>
+</div>

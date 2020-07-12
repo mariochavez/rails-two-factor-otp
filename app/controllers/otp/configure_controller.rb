@@ -4,23 +4,16 @@ module Otp
   class ConfigureController < ApplicationController
     before_action :authenticate!, :otp_not_enabled!
 
-    OTP_ISSUER = "OTP Security with Rails"
-
     def new
-      @otp_secret = ROTP::Base32.random
-      totp = ROTP::TOTP.new(@otp_secret, issuer: OTP_ISSUER)
-
-      @qr_code = RQRCode::QRCode.new(totp.provisioning_uri(current_identity.email))
-        .as_png(resize_exactly_to: 200)
-        .to_data_url
+      @otp_secret = generate_otp_secret
+      @qr_code = generate_qr_code_url(@otp_secret, current_identity.email)
     end
 
     def create
       otp_secret = params[:otp_secret]
       otp_code = params[:otp_code]
 
-      totp = ROTP::TOTP.new(otp_secret, issuer: OTP_ISSUER)
-      last_otp_at = totp.verify(otp_code, drift_behind: 15)
+      last_otp_at = verify_otp_code(otp_secret, otp_code)
 
       if last_otp_at.present?
         @recovery_codes = generate_recovery_codes
@@ -35,16 +28,6 @@ module Otp
       else
         render json: {error: "Verification code is invalid"}, status: :unprocessable_entity
       end
-    end
-
-    private
-
-    def generate_recovery_codes
-      10.times.map { SecureRandom.alphanumeric(12) }
-    end
-
-    def otp_not_enabled!
-      redirect_to root_path, notice: "2AF already enabled" if current_identity.otp_enabled_at.present?
     end
   end
 end
